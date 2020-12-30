@@ -9,6 +9,7 @@ import {useStateValue} from "../StateProvider";
 function Sidebar(props) {
     const [rooms, setRooms] = useState([]);
     const [{ user }, dispatch] = useStateValue();
+    const [state, setState] = React.useState(false);
 
     useEffect(()=>{
         const unsubscribe = db.collection('rooms').onSnapshot(snapshot => {
@@ -22,18 +23,10 @@ function Sidebar(props) {
         }
     },[])
 
-    function openNav() {
-        document.getElementById("sidebar").style.display = "flex!important";
-    }
-
-    function closeNav() {
-        document.getElementById("sidebar").style.display = "none!important";
-    }
-
-    return (
+    return <>
         <div className="sidebar">
             <div className="sidebar-header">
-                <Avatar src={user?.photoURL } onClick={closeNav}/>
+                <Avatar src={user?.photoURL }/>
                 <div className="sidebar-headerRight">
                     <IconButton>
                         <DonutLarge/>
@@ -60,7 +53,8 @@ function Sidebar(props) {
                 ))}
             </div>
         </div>
-    );
+    </>
+
 }
 
 export default Sidebar;

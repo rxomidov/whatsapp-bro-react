@@ -24,3 +24,10 @@
     background: #4bb67a!important;
     color: #fff;
 }
+
+
+@media screen and (max-width: 992px) {
+    .login-container{
+        padding: 50px;
+    }
+}

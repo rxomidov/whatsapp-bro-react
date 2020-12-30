@@ -1,6 +1,6 @@
 .sidebar{
     display: flex;
-    flex: 0.35;
+    flex: 0.25;
     flex-direction: column;
 }
 .sidebar-header{
@@ -52,6 +52,6 @@
 
 @media screen and (max-width: 992px) {
     .sidebar{
-        //display: b;
+        flex: 1;
     }
 }
