@@ -21,4 +21,14 @@ a{
 .sidebarChat h2{
     font-size: 1.2rem;
     margin-left: 10px;
+    color: #020e5b;
+}
+
+@media screen and (max-width: 992px) {
+    .sidebarChat h2{
+        font-size: 1rem;
+    }
+    .sidebarChat__info p{
+        font-size: 10px;
+    }
 }

@@ -32,6 +32,7 @@ function SidebarChat({id, name, addNewChat}) {
         }
     };
 
+
     return !addNewChat ? (
         <Link to={`/rooms/${id}`}>
             <div className="sidebarChat">
@@ -44,7 +45,7 @@ function SidebarChat({id, name, addNewChat}) {
         </Link>
     ) : (
         <div onClick={createChat} className="sidebarChat">
-            <h2>AddNew Chat</h2>
+            <h2>Add New Chat +</h2>
         </div>
     );
 }

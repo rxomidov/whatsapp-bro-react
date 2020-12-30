@@ -27,8 +27,9 @@
 }
 .chat-body{
     flex: 1;
+    //flex-direction: column-reverse;
     padding: 30px;
-    overflow: hidden scroll;
+    overflow: scroll;
 }
 .chat-message{
     position: relative;
@@ -49,7 +50,7 @@
 }
 .chat-timestamp{
     position: relative;
-    top: 5px;
+    top: 10px;
     margin-left: 10px;
     font-size: xx-small;
     font-weight: bold;
@@ -86,6 +87,6 @@
 
 @media screen and (max-width: 992px) {
     .chat{
-        flex: 100;
+        flex: 0.75;
     }
 }

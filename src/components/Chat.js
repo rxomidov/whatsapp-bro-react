@@ -50,11 +50,11 @@ function Chat(props) {
                 .serverTimestamp(),
         });
 
-        window.scroll({
-            bottom: document.body.offsetHeight,
-            left: 0,
-            behavior: 'smooth',
-        });
+        // window.scroll({
+        //     bottom: document.getElementsByClassName('chat-body').offsetHeight,
+        //     left: 0,
+        //     behavior: 'smooth',
+        // });
         //console.log("why not scroll")
 
         setInput("");
@@ -68,7 +68,7 @@ function Chat(props) {
                     <h3>{roomName}</h3>
                     <p>last seen{" "}
                         {new Date(messages[messages.length-1]?.
-                        timestamp?.toDate()).toUTCString()}
+                        timestamp?.toDate()).toUTCString().slice(6,22)}
                     </p>
                 </div>
                 <div className="chat-headerRight">
@@ -90,7 +90,7 @@ function Chat(props) {
                         {message.message}
                         <span className="chat-timestamp">
                             {new Date(message.timestamp?.toDate())
-                                .toUTCString()}
+                                .toUTCString().slice(6,22)}
                         </span>
                     </p>
                 ))}

@@ -22,10 +22,18 @@ function Sidebar(props) {
         }
     },[])
 
+    function openNav() {
+        document.getElementById("sidebar").style.display = "flex!important";
+    }
+
+    function closeNav() {
+        document.getElementById("sidebar").style.display = "none!important";
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebar-header">
-                <Avatar src={user?.photoURL }/>
+                <Avatar src={user?.photoURL } onClick={closeNav}/>
                 <div className="sidebar-headerRight">
                     <IconButton>
                         <DonutLarge/>
