@@ -10,7 +10,10 @@ import db from "../firebase";
 import firebase from "firebase";
 import {useStateValue} from "../StateProvider";
 
-function Chat(props) {
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
+
+function Chat({isOpen, toggle}) {
 
     const [seed, setSeed] = useState('');
     const [input, setInput] = useState('');
@@ -50,20 +53,29 @@ function Chat(props) {
                 .serverTimestamp(),
         });
 
-        // window.scroll({
-        //     bottom: document.getElementsByClassName('chat-body').offsetHeight,
-        //     left: 0,
-        //     behavior: 'smooth',
-        // });
-        //console.log("why not scroll")
-
         setInput("");
     };
+
+    // const addEmoji = e => {
+    //     let emoji = e.native;
+    //     this.setState({
+    //         text: this.state.text + emoji
+    //     });
+    // };
+
+    // function handleScroll() {
+    //     window.scroll({
+    //         top: document.getElementById('chat-body').offsetHeight,
+    //         left: 0,
+    //         behavior: 'smooth',
+    //     });
+    // }
 
     return (
         <div className="chat">
             <div className="chat-header">
-                <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
+                <Avatar  isOpen={isOpen} onClick={toggle}
+                    src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
                 <div className="chat-headerInfo">
                     <h3>{roomName}</h3>
                     <p>last seen{" "}
@@ -83,7 +95,7 @@ function Chat(props) {
                     </IconButton>
                 </div>
             </div>
-            <div className="chat-body">
+            <div className="chat-body" id='chat-body'>
                 {messages.map((message) => (
                     <p className={`chat-message ${message.name === 
                     user.displayName && 'chat-receiver'}`}>
@@ -91,13 +103,14 @@ function Chat(props) {
                         {message.message}
                         <span className="chat-timestamp">
                             {new Date(message.timestamp?.toDate())
-                                .toUTCString().slice(6,22)}
+                                .toUTCString().slice(5,22)}
                         </span>
                     </p>
                 ))}
 
             </div>
             <div className="chat-footer">
+                {/*<Picker onSelect={addEmoji}/>*/}
                 <InsertEmoticon/>
                 <form action="">
                     <input value={input} onChange={e =>
@@ -107,6 +120,7 @@ function Chat(props) {
                         Send Message</button>
                 </form>
                 <Mic/>
+                {/*<button type="button" onClick={handleScroll}>Scroll</button>*/}
             </div>
         </div>
     );

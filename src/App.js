@@ -9,6 +9,11 @@ import {useStateValue} from "./StateProvider";
 function App() {
     const [{ user }, dispatch] = useStateValue();
 
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () =>{
+        setIsOpen(!isOpen);
+    }
+
     return (
         <div className="App">
             {!user ? (
@@ -16,7 +21,7 @@ function App() {
             ) : (
                 <div className="app-body">
                     <Router>
-                        <Sidebar/>
+                        <Sidebar isOpen={isOpen} toggle={toggle}/>
                         <Switch>
                             <Route path="/rooms/:roomId">
                                 <Chat/>

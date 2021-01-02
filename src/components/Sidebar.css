@@ -48,10 +48,23 @@
     background: white;
     overflow: hidden scroll;
 }
+.disnone{
+    display: none!important;
+}
 
 
 @media screen and (max-width: 992px) {
     .sidebar{
-        flex: 1;
+        flex: 0.25;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sidebar{
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 999!important;
+        background: #fff;
     }
 }

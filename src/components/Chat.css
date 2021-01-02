@@ -27,7 +27,7 @@
 }
 .chat-body{
     flex: 1;
-    //flex-direction: column-reverse;
+    flex-direction: column-reverse;
     padding: 30px;
     overflow: scroll;
 }
@@ -87,6 +87,14 @@
 
 @media screen and (max-width: 992px) {
     .chat{
+        flex: 0.75;
+    }
+}
+@media screen and (max-width: 768px) {
+    .chat{
         flex: 1;
+    }
+    .chat-body{
+        padding: 20px;
     }
 }

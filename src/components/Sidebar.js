@@ -6,10 +6,9 @@ import SidebarChat from "./SidebarChat";
 import db from "../firebase";
 import {useStateValue} from "../StateProvider";
 
-function Sidebar(props) {
+function Sidebar({isOpen, toggle}) {
     const [rooms, setRooms] = useState([]);
     const [{ user }, dispatch] = useStateValue();
-    const [state, setState] = React.useState(false);
 
     useEffect(()=>{
         const unsubscribe = db.collection('rooms').onSnapshot(snapshot => {
@@ -24,9 +23,9 @@ function Sidebar(props) {
     },[])
 
     return <>
-        <div className="sidebar">
+        <div className={`sidebar ${isOpen && "disnone"}`}>
             <div className="sidebar-header">
-                <Avatar src={user?.photoURL }/>
+                <Avatar src={user?.photoURL}/>
                 <div className="sidebar-headerRight">
                     <IconButton>
                         <DonutLarge/>
@@ -45,7 +44,7 @@ function Sidebar(props) {
                     <input type="text" placeholder="Search or start new chat"/>
                 </div>
             </div>
-            <div className="sidebar__chats">
+            <div className="sidebar__chats" isOpen={isOpen} onClick={toggle}>
                 <SidebarChat addNewChat/>
                 {rooms.map(room=>(
                     <SidebarChat key={room.id}
