@@ -24,12 +24,12 @@ function App() {
                         <Sidebar isOpen={isOpen} toggle={toggle}/>
                         <Switch>
                             <Route path="/rooms/:roomId">
-                                <Chat/>
+                                <Chat isOpen={isOpen} toggle={toggle}/>
                             </Route>
-                            <Route exact path="/">
-                                {/*<Sidebar/>*/}
-                                <Chat/>
-                            </Route>
+                            {/*<Route exact path="/">*/}
+                            {/*    /!*<Sidebar/>*!/*/}
+                            {/*    <Chat/>*/}
+                            {/*</Route>*/}
                         </Switch>
                     </Router>
                 </div>

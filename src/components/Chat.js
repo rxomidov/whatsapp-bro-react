@@ -3,7 +3,7 @@ import './Chat.css'
 import {Avatar, IconButton} from "@material-ui/core";
 import {
     SearchOutlined, AttachFile, MoreVert,
-    InsertEmoticon, Mic
+    InsertEmoticon, Mic, KeyboardArrowLeft
 } from "@material-ui/icons";
 import {useParams} from 'react-router-dom';
 import db from "../firebase";
@@ -74,7 +74,10 @@ function Chat({isOpen, toggle}) {
     return (
         <div className="chat">
             <div className="chat-header">
-                <Avatar  isOpen={isOpen} onClick={toggle}
+                <IconButton>
+                    <KeyboardArrowLeft isOpen={isOpen} onClick={toggle}/>
+                </IconButton>
+                <Avatar
                     src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
                 <div className="chat-headerInfo">
                     <h3>{roomName}</h3>

@@ -24,15 +24,15 @@
     align-items: center;
     background: #f6f6f6;
     height: 39px;
-    padding: 10px;
+    padding: 16px;
 }
 .sidebar-searchContainer{
     display: flex;
     align-items: center;
     background: #fff;
     width: 100%;
-    height: 35px;
-    //border-radius: 20px;
+    height: 45px;
+    border-radius: 5px;
 }
 .sidebar-searchContainer input{
     border: none;
@@ -64,7 +64,7 @@
         width: 100vw;
         height: 100vh;
         position: fixed;
-        z-index: 999!important;
+        z-index: 99!important;
         background: #fff;
     }
 }
