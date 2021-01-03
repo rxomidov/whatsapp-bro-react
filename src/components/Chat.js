@@ -75,7 +75,8 @@ function Chat({isOpen, toggle}) {
         <div className="chat">
             <div className="chat-header">
                 <IconButton>
-                    <KeyboardArrowLeft isOpen={isOpen} onClick={toggle}/>
+                    <KeyboardArrowLeft
+                        isOpen={isOpen} onClick={toggle}/>
                 </IconButton>
                 <Avatar
                     src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
@@ -94,7 +95,7 @@ function Chat({isOpen, toggle}) {
                         <AttachFile/>
                     </IconButton>
                     <IconButton>
-                        <MoreVert/>
+                        <MoreVert className="mrnone"/>
                     </IconButton>
                 </div>
             </div>
