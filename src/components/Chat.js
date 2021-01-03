@@ -12,6 +12,7 @@ import {useStateValue} from "../StateProvider";
 
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 function Chat({isOpen, toggle}) {
 
@@ -99,7 +100,7 @@ function Chat({isOpen, toggle}) {
                     </IconButton>
                 </div>
             </div>
-            <div className="chat-body" id='chat-body'>
+            <ScrollToBottom className="chat-body" id='chat-body'>
                 {messages.map((message) => (
                     <p className={`chat-message ${message.name === 
                     user.displayName && 'chat-receiver'}`}>
@@ -112,7 +113,7 @@ function Chat({isOpen, toggle}) {
                     </p>
                 ))}
 
-            </div>
+            </ScrollToBottom>
             <div className="chat-footer">
                 {/*<Picker onSelect={addEmoji}/>*/}
                 <InsertEmoticon/>
